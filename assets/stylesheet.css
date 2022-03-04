@@ -20,20 +20,21 @@ body {
     width: 100vw;
     height: 100vh;
     background-color: rgb(76, 107, 248);
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 main {
-    display: flex;
-    justify-content: safe;
-    align-items: center;
+    padding-right: 800px;
+    padding-top: 25px;
 }
 
 .container{
-    display: flex;
-    justify-content: center;
-    align-items: center; 
     position: absolute;
     width: 800px;
+    height: 350px;
     background-color: white;
     max-width: 80%;
     border-radius: 5px;
@@ -70,11 +71,17 @@ main {
 } 
 
 .start-btn {
-    font-size: 30px;
+    font-size: 3.5rem;
     font-weight: bold;
     padding: 10px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.hide {
+    display: none;
+}
