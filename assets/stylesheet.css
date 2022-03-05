@@ -1,5 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
 *{
-    font-family: Comic Sans MS;
+    font-family: 'Zen Dots', cursive;
 }
 
 body header {
@@ -74,6 +75,8 @@ main {
     font-size: 3.5rem;
     font-weight: bold;
     padding: 10px 20px;
+    position: relative;
+    top: 115px;
 }
 
 .controls {

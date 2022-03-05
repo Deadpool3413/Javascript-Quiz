@@ -2,55 +2,97 @@ const startButton = document.getElementById('start-btn')
 const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
 const answerButtonElement = document.getElementById('answer-buttons')
+const quizIntroContainer = document.getElementById('quiz-intro')
+const timer = document.getElementById('timer')
 
 let shuffledQuestions, currentQuestionIndex
+let quizTime = 100;
+let scores = [];
+let score = 0;
+// scores.push(score);
+let highScore = Math.max(...scores);
 
-startButton.addEventListener('click', startGame)
+startButton.addEventListener('click', startGame);
 
 function startGame() {
     console.log('Started')
     startButton.classList.add('hide')
-    shuffledQuestions = questions.sort(() => Math.random() - .5)
-    currentQuestionIndex = 0
-    questionContainerElement.classList.remove('hide')
-    setNextQuestion()
+    quizIntroContainer.classList.add('hide')
+    timer.innerText = 100;
+    setTimer();
+    shuffledQuestions = questions.sort(() => Math.random() - .5);
+    currentQuestionIndex = 0;
+    questionContainerElement.classList.remove('hide');
+    setNextQuestion();
+}
+
+function setTimer() {
+    var downloadTimer = setInterval(function(){
+
+        if(quizTime <= 0){
+            clearInterval(downloadTimer);
+        }
+        document.getElementById("timer").value = 1 - quizTime;
+        quizTime -= 1;
+    }, 1000);
 }
 
 function setNextQuestion() {
-    // resetState()
     showQuestion(shuffledQuestions[currentQuestionIndex])
 }
 
 function showQuestion(question) {
-    questionElement.innerText = question.question
-    question.answer.forEach(answer => {
-        const button = document.createElement('button')
-        button.innerText = answer.text
-        button.classList.add('btn')
-        if (answer.correct) {
-            button.dataset.correct = answer.correct
-        }
-        button.addEventListener('click', selectAnswer)
-        answerButtonElement.appendChild(button)
-    })
+    const questionEl = document.querySelector('#question')
+    const answerEl = document.querySelectorAll('.btn')
+    questionEl.textContent = question.question
+    for (let index = 0; index < answerEl.length; index++) {
+        const element = answerEl[index];
+        element.textContent = question.answer[index].text
+    }
 }
 
-// function resetState() {
-//     nextButton.classList.add('hide')
-//     while (answerButtonElement.firstChild) {
-//         answerButtonElement.removeChild(answerButtonsElement.firstChild)
-//     }
-// }
-
 function selectAnswer() {
+    // increase currentquestionindex by 1 in here, call setNextQuestion
+    // question.index += question.index
+    // question.index+=1
+    question.index++
 }
 
 const questions = [
     {
+        question: 'Inside which HTML element do we put the JavaScript?',
+        answer: [
+            { text: '<script>', correct: true },
+            { text: '<javascript>', correct: false },
+            { text: '<scripting>', correct: false },
+            { text: '<js>', correct: false }
+        ]
+    },
+    {
+        question: 'How do you create a function in JavaScript?',
+        answer: [
+            { text: 'function:myFunction()', correct: false },
+            { text: 'function = myFunction()', correct: false },
+            { text: 'function myFunction()', correct: true },
+            { text: 'const function = myFunction()', correct: false }
+        ]
+    },
+    {
+        question: 'A variable in JavaScript is declared with which of the following keyword?',
+        answer: [
+            { text: 'new', correct: true },
+            { text: 'int', correct: false },
+            { text: 'string', correct: false },
+            { text: 'var', correct: false }
+        ]
+    },
+    {
         question: 'What is 2 + 2?',
         answer: [
             { text: '4', correct: true },
-            { text: '22', correct: false }
+            { text: '22', correct: false },
+            { text: '100', correct: false },
+            { text: '-4', correct: false }
         ]
     }
 ]

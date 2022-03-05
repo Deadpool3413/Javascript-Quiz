@@ -11,12 +11,18 @@
 <body>
     <header>
         <h1>JavaScript Quiz!</h1>
+        <div id="quiz-intro">
         <p>Prepare to take a timed Quiz on JavaScript</p>
         <p>Every time you get an answer wrong you will have 2 seconds deducted from your time on the test </p>
         <p>The Quiz will come to an end once you finish answering all of the questions or have 0 seconds left on your time</p>
+        </div>
+
+
+
     </header>
-    <Main>
+    <main>
         <div class="container">
+            <input id="timer" value="100" />
             <div id="question-container" class="hide">
                 <div id="question">Question</div>
                 <div id="answer-buttons" class="btn-grid">
