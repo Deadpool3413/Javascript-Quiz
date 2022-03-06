@@ -13,6 +13,7 @@ let score = 0;
 let highScore = Math.max(...scores);
 
 startButton.addEventListener('click', startGame);
+answerButtonElement.addEventListener('click', selectAnswer);
 
 function startGame() {
     console.log('Started')
@@ -47,7 +48,7 @@ function showQuestion(question) {
     questionEl.textContent = question.question
     for (let index = 0; index < answerEl.length; index++) {
         const element = answerEl[index];
-        element.textContent = question.answer[index].text
+        element.textContent = question?.answer[index]?.text
     }
 }
 
@@ -96,3 +97,7 @@ const questions = [
         ]
     }
 ]
+
+function selectAnswer (e) {
+    console.log('this is working')
+}
