@@ -65,6 +65,16 @@ main {
     background-color: cornflowerblue;
 }
 
+.answer-btn {
+        font-size: 25px;
+        color: white;
+        text-align: center;
+        padding: 12px 28px;
+        border-radius: 12px;
+        transition-duration: 0.4s;
+        background-color: cornflowerblue;
+}
+
 .btn:hover {
     background-color:#1163fa; 
     color: black;

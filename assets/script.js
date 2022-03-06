@@ -44,7 +44,7 @@ function setNextQuestion() {
 
 function showQuestion(question) {
     const questionEl = document.querySelector('#question')
-    const answerEl = document.querySelectorAll('.btn')
+    const answerEl = document.querySelectorAll('.answer-btn')
     questionEl.textContent = question.question
     for (let index = 0; index < answerEl.length; index++) {
         const element = answerEl[index];
@@ -99,5 +99,10 @@ const questions = [
 ]
 
 function selectAnswer (e) {
-    console.log('this is working')
+    if (questions[currentQuestionIndex].answer[0].correct){
+        console.log(question.answer)
+    }
 }
+
+// in answer bracket make an index for the question chosen by the user//
+//code engineer//
