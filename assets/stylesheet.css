@@ -98,3 +98,13 @@ main {
 .hide {
     display: none;
 }
+
+.wrong {
+    background-color: red;
+    color: white
+}
+
+.correct {
+    background-color: greenyellow;
+    color: white;
+}
