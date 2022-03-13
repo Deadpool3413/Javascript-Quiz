@@ -23,8 +23,15 @@
     </header>
     <main>
         <div class="container">
-            <input id="timer" value="100" />
+            <div style="display: flex; justify-content: space-between; height: 50px; align-items: center;">
+                <input style="height: 25px" id="timer" value="100" />
+                <div style="display: flex; align-items: center;">
+                    <p style="margin-right: 10px">High Score: </p>
+                    <input value="" id="score">
+                </div>
+            </div>
             <div id="question-container" class="hide">
+
                 <div id="question">Question</div>
                 <div id="answer-buttons" class="btn-grid">
                     <button id="answer" class="answer-btn">Answer 1</button>

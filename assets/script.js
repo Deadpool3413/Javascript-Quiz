@@ -1,8 +1,8 @@
 // ------------------ Variables ------------------
 let shuffledQuestions, currentQuestionIndex;
 let quizTime = 100;
-let scores = [];
-let score = 0;
+// let scores = [];
+// let score = 0;
 let record = {};
 
 // ------------------ Query/Node Selectors ------------------
@@ -13,6 +13,7 @@ const answerButtonElement = document.getElementById('answer-buttons');
 const quizIntroContainer = document.getElementById('quiz-intro');
 const timer = document.getElementById('timer');
 const answerEl = document.getElementById('answer');
+const score = document.getElementById('score');
 
 const questionEl = document.querySelector('#question');
 const answerButtonsEl = document.querySelectorAll('.answer-btn');
@@ -68,6 +69,11 @@ const gameOver = () => {
   const username = window.prompt('Type your name here');
   record = { score: timer.value, name: username };
   localStorage.setItem(username, JSON.stringify(record));
+  const latestScore = localStorage.getItem(username);
+  console.log(latestScore, 'should be latest score');
+
+  //   score.innerText = latestScore.score;
+  score.value = latestScore.score;
   startGame();
 };
 
